@@ -1,2 +1,16 @@
-Coloque aqui suas instruções ou comentários que ache útil/relevantes para possamos ler 
-quando estivermos avaliando a sua solução
+Para realizar a execução da classe de teste deve ter um arquivo partida.txt na raiz do disco local C:.
+
+Aplicação rodando em servidor Tomcat7.
+
+Endereço da Aplicação em ambiente Amazon: http://54.232.209.158:8080/EstatisticaPartida/
+
+Instruções: Ao acessar o link da aplicação, aparecerá um botão de pesquisa para pesquisar o arquivo TXT do log da Partida.
+
+Acrescentado: 
+Caso haja empate de Eliminações o próximo requisito será a quantidade de Mortes.
+
+Após carregar o arquivo TXT, automaticamente a aplicação irá "Destrinchar" o arquivo TXT passando todas as suas informações para as entidades ali contidas.
+
+Realizei criação de Classes utilitárias para não bagunçar as classes da camada MVC, funcionando como um DAO.
+
+Evitei inserir comentários nos métodos por questão de estética do código, mas caso seja preciso realizo a refatoração com comentários

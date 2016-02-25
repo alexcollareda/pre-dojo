@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Estatísticas da partida</title>
+</h:head>
+
+<h:body>
+	<h:form enctype="multipart/form-data" prependId="false">
+		<p:fileUpload fileUploadListener="#{rankingAction.doUpload}" showButtons="false" label="Procurar..." auto="true"
+			update="@form" />
+
+		<p:messages severity="info" escape="false" showDetail="true" autoUpdate="true" closable="true" />
+
+		<p:dataTable id="dataTableResultadosJogadores" var="j" value="#{rankingAction.listaJogador}"
+			rendered="#{not empty rankingAction.listaJogador}">
+			<f:facet name="header">
+				Partida : #{rankingAction.partida.nomePartida} - #{rankingAction.partida.dataInicioFormatada} Até #{rankingAction.partida.dataFimFormatada}
+			</f:facet>
+
+			<p:column headerText="Jogador">
+				<p:outputLabel value="#{j.nome}" />
+			</p:column>
+
+			<p:column headerText="Eliminações" width="100">
+				<center>
+					<p:outputLabel value="#{j.qntdEliminacoes}" />
+				</center>
+			</p:column>
+
+			<p:column headerText="Mortes" width="100">
+				<center>
+					<p:outputLabel value="#{j.qntdMortes}" />
+				</center>
+			</p:column>
+
+			<p:column headerText="Rec. Invict" width="100">
+				<center>
+					<p:outputLabel value="#{j.recompesaInvict ? 'SIM' : 'NÃO'}" />
+				</center>
+			</p:column>
+
+			<p:column headerText="Rec. MultiKill" width="130">
+				<center>
+					<p:outputLabel value="#{j.recompesaMultiKill ? 'SIM' : 'NÃO'}" />
+				</center>
+			</p:column>
+			<f:facet name="footer">
+				Campeão: #{rankingAction.partida.jogadorVencedor.nome} - Sua Melhor Arma: #{rankingAction.partida.jogadorVencedor.armaPrincipal.modelo}
+			</f:facet>
+
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
